@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belysning</title>
+    <link rel="stylesheet" href='/static/style.css' />
+</head>
+
+<body>
+
+    <section id="fst-container" class="container">
+        <h1>Belysning</h1>
+
+        <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+        <form id="mainform" action="/" method="POST" target="dummyframe">
+
+            <div class="colorcontainer">
+                <label class="color" for="color">color selector</label>
+                <input class="color" id="color" name="color" type="color"></input>
+            </div>
+            <div class="slidercontainer">
+                <label class="dimmertext" for="dimmer">dimmer</label>
+                <input class="slider" id="dimmer" name="dimmer" type="range" min="1" max="255" value="69"></input>
+            </div>
+            <input class="btn info" id="submitbutton" type="submit" value="deploy"></input>
+        </form>
+        <div class="misc">
+            <h3>Misc</h3>
+            <form action="/" method="POST">
+                <button class="btn info" name="action" value="turn_on">Turn On</button>
+                <button class="btn info" name="action" value="turn_off">Turn Off</button>
+                <button class="btn info" name="action" value="tivoli">Tivoli</button>
+                <button class="btn info" name="action" value="tivoli2">Tivoli 2</button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
