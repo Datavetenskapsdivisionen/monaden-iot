@@ -15,14 +15,19 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--host', type=str,default="localhost")
-parser.add_argument('--port', type=int, default=1883)
-parser.add_argument('--prefix', type=str, default="zigbee2mqtt")
+parser.add_argument('--port', type=int, default=5000)
+parser.add_argument('--backend_host', type=str,default="localhost")
+parser.add_argument('--backend_port', type=int, default=1883)
+parser.add_argument('--backend_prefix', type=str,default="zigbee2mqtt")
 args = parser.parse_args()
 
 app = Flask(__name__)
-PREFIX = args.prefix
 HOST = args.host
 PORT = args.port
+BACKEND_HOST = args.backend_host
+BACKEND_PORT = args.backend_port
+BACKEND_PREFIX = args.backend_prefix
+
 lamp_T = Tuple[int, Tuple[int, int, int]]
 changes: multiprocessing.queues.Queue[lamp_T] = multiprocessing.Queue()
 
@@ -56,7 +61,7 @@ async def main(kit: MonadenKit):
 
 def main_sync_wrapper(verbose: bool = False):
 
-    asyncio.run(run_with_monaden_kit(main,HOST,PORT, PREFIX,
+    asyncio.run(run_with_monaden_kit(main,BACKEND_HOST,BACKEND_PORT, BACKEND_PREFIX,
                                                  verbose))
    
 
@@ -90,11 +95,10 @@ def submit():
 
 
 if __name__ == '__main__':
-    print("host__", HOST)
     main_process = multiprocessing.Process(target=main_sync_wrapper, args= [False])
     main_process.start()
     try:    
-        app.run(debug=True)
+        app.run(host=HOST, port=PORT)
     except KeyboardInterrupt:
         pass
     print("Shuting down all")
