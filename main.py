@@ -9,7 +9,7 @@ from aiomqtt import Message as Aiomessage
 from backend.Devices import IkeaColorLight
 from random import randint
 from typing import Tuple, Callable
-from SoundAnalysis.beatFinder import PyAudioBF, BeatFinder
+#from SoundAnalysis.beatFinder import PyAudioBF, BeatFinder
 import time
 from pynput import keyboard
 import sys
@@ -191,7 +191,7 @@ async def main2():
                 await client.send(f"{d_name}/set", any2bytes({"brightness": 100}))
                 await asyncio.sleep(0.3)
 
-def start_beat_finder(call_back: Callable[[float], None]) -> PyAudioBF:
+"""def start_beat_finder(call_back: Callable[[float], None]) -> PyAudioBF:
     sample_rate = 200000
     bf = BeatFinder(call_back, sample_rate, 
                     base_frequency_cutoff=1000,
@@ -233,7 +233,7 @@ async def music_sync(kit: MonadenKit):
         print("empty")
         i += 1
         print(i)
-
+"""
 
 async def octoberfest(kit: MonadenKit):
     await start(kit)
@@ -279,6 +279,9 @@ async def glögkväll(kit: MonadenKit):
             await l.set_color(IkeaColorLight.ColorRGB(*white))
         await asyncio.sleep(wait_time)
    
+
+
+
 if __name__ == "__main__":  
     asyncio.run(run_with_monaden_kit(glögkväll,HOST,PORT,PREFIX,verbose=False))
     #asyncio.run(main2())

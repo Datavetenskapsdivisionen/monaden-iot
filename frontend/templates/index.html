@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belysning</title>
-    <link rel="stylesheet" href='/static/style.css' />
+    <link rel="stylesheet" href='/static/style.css'/>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <h1>Belysning</h1>
 
         <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-        <form id="mainform" action="/" method="POST" target="dummyframe">
+        <form id="mainform" action="/light" method="POST" target="dummyframe">
 
             <div class="colorcontainer">
                 <label class="color" for="color">color selector</label>
@@ -27,15 +27,15 @@
             </div>
             <input class="btn info" id="submitbutton" type="submit" value="deploy"></input>
         </form>
-        <div class="misc">
-            <h3>Misc</h3>
-            <form action="/" method="POST">
-                <button class="btn info" name="action" value="turn_on">Turn On</button>
-                <button class="btn info" name="action" value="turn_off">Turn Off</button>
-                <button class="btn info" name="action" value="tivoli">Tivoli</button>
-                <button class="btn info" name="action" value="tivoli2">Tivoli 2</button>
-            </form>
-        </div>
+        
+        <h1>Ljud</h1>
+        <form id="mainform" action="/sound" method="POST" target="dummyframe">
+            <div class="slidercontainer">
+                <label class="dimmertext" for="volume">volume</label>
+                <input class="slider" id="volume" name="volume" type="range" min="0" max="1000" value="100"></input>
+            </div>
+            <input class="btn info" id="submitbutton" type="submit" value="deploy"></input>
+        </form>
     </section>
 </body>
 

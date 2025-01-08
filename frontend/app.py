@@ -1,6 +1,12 @@
+import multiprocessing.context
+import multiprocessing.pool
 import multiprocessing.queues
+import multiprocessing.sharedctypes
 import os
 import sys
+import signal
+import time
+
 sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
 
 
@@ -12,6 +18,8 @@ import asyncio
 import multiprocessing
 from concurrent.futures import ThreadPoolExecutor
 import argparse
+import pychromecast
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--host', type=str,default="localhost")
@@ -29,7 +37,8 @@ BACKEND_PORT = args.backend_port
 BACKEND_PREFIX = args.backend_prefix
 
 lamp_T = Tuple[int, Tuple[int, int, int]]
-changes: multiprocessing.queues.Queue[lamp_T] = multiprocessing.Queue()
+light_changes: multiprocessing.queues.Queue[lamp_T] = multiprocessing.Queue()
+volume_changed: multiprocessing.queues.Queue[float] = multiprocessing.Queue()
 
 
 async def mp2async[*args,ret](func: Callable[[*args],ret], args: Tuple[*args]) -> ret:
@@ -49,8 +58,7 @@ async def main(kit: MonadenKit):
     await asyncio.sleep(0.5)
     try:
         while True: 
-            changes.get
-            brightness, (r,g,b) = await mp2async(changes.get,())
+            brightness, (r,g,b) = await mp2async(light_changes.get,())
             print((brightness, (r,g,b)))
             
             await kit.all_lights.set_brightness(brightness)
@@ -69,9 +77,9 @@ def main_sync_wrapper(verbose: bool = False):
 def index():
     return render_template('index.html')
 
-@app.route('/', methods=['POST'])
-def submit():
-   
+@app.route('/light', methods=['POST'])
+def light():
+    print("light started")
     color: str | None = request.form.get('color')
     dimmer: str | None  = request.form.get('dimmer')
     print("adafscad", request.form)
@@ -80,28 +88,63 @@ def submit():
         g = int(color[3:5], base=16)
         b = int(color[5:], base=16)
         #print(f'Color: {color}, Dimmer: {dimmer}')
-        changes.put((int(dimmer), (r,g,b)))
+        light_changes.put((int(dimmer), (r,g,b)))
     if 'action' in request.form:
         print("action!")
         action = request.form['action']
         # Handle the button presses here
         if action == 'turn_on':
-            changes.put((255, (255, 255, 255)))
+            light_changes.put((255, (255, 255, 255)))
         elif action == 'turn_off':
-            changes.put((0, (0,0,0)))
+            light_changes.put((0, (0,0,0)))
         
     return redirect(url_for('index'))
+
+@app.route('/sound', methods=['POST'])
+def sound():
+    print(dict(request.form))
+    volume: str | None  = request.form.get('volume')
+    print(f"volume got!{volume}")
+    if volume == None:
+        return redirect(url_for('index'))
+    volume_changed.put(int(volume) / 1000)
+    return redirect(url_for('index'))
+
+def sound_main():
+    chromecast = pychromecast.get_listed_chromecasts(friendly_names=["Living Room TV"])[0][0]
+    chromecast.wait()
+    while True:
+        new_volume = volume_changed.get()
+        print(f"volume gotten! {new_volume}")
+        chromecast.set_volume(new_volume)
+        time.sleep(0.1)
+        
+
+def worker[*args_T](func: Callable[[*args_T],None], args: Tuple[*args_T]):
+    try:
+        func(*args)
+    except Exception as e:
+        print(e)
 
 
 
 if __name__ == '__main__':
-    main_process = multiprocessing.Process(target=main_sync_wrapper, args= [False])
-    main_process.start()
-    try:    
-        app.run(host=HOST, port=PORT)
-    except KeyboardInterrupt:
-        pass
-    print("Shuting down all")
-    main_process.terminate()
-   
+
+    frontend_process = multiprocessing.Process(target=app.run, args=(HOST, PORT), name="---FRONTEND---")
+    light_process = multiprocessing.Process(target=main_sync_wrapper, args=(False, ), name="---LIGHTS---")
+    sound_process = multiprocessing.Process(target=sound_main, name="---SOUND---")
+    try:
+        frontend_process.start()
+        light_process.start()
+        sound_process.start()
+        frontend_process.join()
+        light_process.join()
+        sound_process.join()
+
+
+    except Exception:
+        frontend_process.terminate()
+        light_process.terminate()
+        sound_process.terminate()
+        print("---ALL PROCESSES KILLED---")
     
