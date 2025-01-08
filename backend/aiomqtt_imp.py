@@ -8,6 +8,8 @@ from dataclasses import dataclass
 
 def m2d(message: Message_aio) -> Dict[str, str | int | float]:
     b: bytes = message.payload  # type: ignore
+    if b == b"":
+        return {}
     return bytes2any(b)
 
 def sort_gets(message: Message_aio) -> GetKinds:

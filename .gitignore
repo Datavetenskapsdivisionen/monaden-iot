@@ -1,2 +1,4 @@
 
 *.pyc
+/backend/__pycache__
+*.pyc
