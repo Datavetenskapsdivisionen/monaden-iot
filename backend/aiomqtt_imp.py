@@ -68,6 +68,9 @@ def make_bridge(
 class MonadenKit:
     TRADFRI_remotes: Sequence[IKEA_tradfri_remote]
     lights: Sequence[IkeaColorLight]
+    all_lights: IkeaColorLight
+    groups: Dict[str, IkeaColorLight]
+
 
 
 
@@ -102,6 +105,14 @@ async def run_with_monaden_kit(main: Callable[[MonadenKit], Coroutine[None, None
                 else:
                     if verbose:
                         print(f"Found strange device: {device}")
+
+            groups = await bridge.get_groups()
+            group_devices = {}
+            for g in groups:
+                group_devices[g["friendly_name"]] = make_bulb(g["friendly_name"], client)
+           
+            
+            all_lights = make_bulb("all_lights",client)
             async with MultiACM(remotes+lights):
-                await main(MonadenKit(remotes, lights))
+                await main(MonadenKit(remotes, lights, all_lights, group_devices))
 
