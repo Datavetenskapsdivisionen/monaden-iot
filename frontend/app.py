@@ -26,17 +26,23 @@ async def mp2async[*args,ret](func: Callable[[*args],ret], args: Tuple[*args]) -
         result = await loop.run_in_executor(executor, func, *args)
     return result
 
+
+
+
+
 async def main(kit: MonadenKit):
     global changes
-    
+    await kit.all_lights.set_state("OFF")
+    await kit.all_lights.set_state("ON")
+    await asyncio.sleep(0.5)
     try:
         while True: 
             changes.get
             brightness, (r,g,b) = await mp2async(changes.get,())
             print((brightness, (r,g,b)))
-            for light in kit.lights:
-                await light.set_brightness(brightness)
-                await light.set_color(IkeaColorLight.ColorRGB(r,g,b))
+            
+            await kit.all_lights.set_brightness(brightness)
+            await kit.all_lights.set_color(IkeaColorLight.ColorRGB(r,g,b))
     except KeyboardInterrupt:
         print("Shuting down backend")
 
@@ -80,7 +86,7 @@ if __name__ == '__main__':
     print("host__", HOST)
     main_process = multiprocessing.Process(target=main_sync_wrapper, args= [False])
     main_process.start()
-    try:
+    try:    
         app.run(debug=True)
     except KeyboardInterrupt:
         pass
