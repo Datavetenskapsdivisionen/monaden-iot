@@ -11,11 +11,18 @@ from backend.Devices import IkeaColorLight
 import asyncio
 import multiprocessing
 from concurrent.futures import ThreadPoolExecutor
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--host', type=str,default="localhost")
+parser.add_argument('--port', type=int, default=1883)
+parser.add_argument('--prefix', type=str, default="zigbee2mqtt")
+args = parser.parse_args()
 
 app = Flask(__name__)
-PREFIX = "zigbee2mqtt"
-HOST = os.environ.get("MQTT_ADDR", "localhost")
-PORT = 1883
+PREFIX = args.prefix
+HOST = args.host
+PORT = args.port
 lamp_T = Tuple[int, Tuple[int, int, int]]
 changes: multiprocessing.queues.Queue[lamp_T] = multiprocessing.Queue()
 
