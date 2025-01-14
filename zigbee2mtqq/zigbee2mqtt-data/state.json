@@ -4,8 +4,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "2": {
@@ -13,8 +13,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "3": {
@@ -22,8 +22,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe2f3452": {
@@ -31,8 +31,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe2f345d": {
@@ -40,8 +40,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe30db22": {
@@ -49,8 +49,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe327bc1": {
@@ -58,8 +58,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe363f5e": {
@@ -67,8 +67,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe364085": {
@@ -76,8 +76,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe364820": {
@@ -85,8 +85,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe380584": {
@@ -94,8 +94,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe380740": {
@@ -103,8 +103,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe380743": {
@@ -112,8 +112,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe6cd773": {
@@ -121,8 +121,8 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
     },
     "0xcc86ecfffe7de451": {
@@ -130,8 +130,9 @@
         "brightness": 69,
         "color_mode": "xy",
         "color": {
-            "x": 0.4812,
-            "y": 0.3974
+            "x": 0.19,
+            "y": 0.2184
         }
-    }
+    },
+    "0x0c4314fffe19426b": {}
 }
