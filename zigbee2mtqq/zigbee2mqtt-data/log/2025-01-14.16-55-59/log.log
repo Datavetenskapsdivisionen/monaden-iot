@@ -1,0 +1,58 @@
+[2025-01-14 16:55:59] info: 	z2m: Logging to console, file (filename: log.log)
+[2025-01-14 16:55:59] info: 	z2m: Starting Zigbee2MQTT version 1.39.0 (commit #0326926)
+[2025-01-14 16:55:59] info: 	z2m: Starting zigbee-herdsman (0.50.1)
+[2025-01-14 16:55:59] warning: 	zh:ezsp: Deprecated driver 'ezsp' currently in use, 'ember' will become the officially supported EmberZNet driver in next release. If using Zigbee2MQTT see https://github.com/Koenkk/zigbee2mqtt/discussions/21462
+[2025-01-14 16:56:04] info: 	z2m: zigbee-herdsman started (resumed)
+[2025-01-14 16:56:04] info: 	z2m: Coordinator firmware version: '{"meta":{"maintrel":"4 ","majorrel":"7","minorrel":"4","product":13,"revision":"7.4.4.0 build 0"},"type":"EZSP v13"}'
+[2025-01-14 16:56:04] info: 	z2m: Currently 14 devices are joined:
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe6cd773 (0xcc86ecfffe6cd773): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe30db22 (0xcc86ecfffe30db22): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe7de451 (0xcc86ecfffe7de451): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe363f5e (0xcc86ecfffe363f5e): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe2f3452 (0xcc86ecfffe2f3452): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe364820 (0xcc86ecfffe364820): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe327bc1 (0xcc86ecfffe327bc1): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe380740 (0xcc86ecfffe380740): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe380584 (0xcc86ecfffe380584): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe364085 (0xcc86ecfffe364085): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe2f345d (0xcc86ecfffe2f345d): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe380743 (0xcc86ecfffe380743): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0xcc86ecfffe327b56 (0xcc86ecfffe327b56): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 16:56:04] info: 	z2m: 0x0c4314fffe19426b (0x0c4314fffe19426b): E1524/E1810 - IKEA TRADFRI remote control (EndDevice)
+[2025-01-14 16:56:04] warning: 	z2m: `permit_join` set to  `true` in configuration.yaml.
+[2025-01-14 16:56:04] warning: 	z2m: Allowing new devices to join.
+[2025-01-14 16:56:04] warning: 	z2m: Set `permit_join` to `false` once you joined all devices.
+[2025-01-14 16:56:04] info: 	z2m: Zigbee: allowing new devices to join.
+[2025-01-14 16:56:04] info: 	z2m: Connecting to MQTT server at mqtt://mqtt
+[2025-01-14 16:56:04] info: 	z2m: Connected to MQTT server
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/state', payload '{"state":"online"}'
+[2025-01-14 16:56:04] info: 	z2m: Started frontend on port 8080
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe6cd773', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":224,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe30db22', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":212,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe7de451', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":248,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe363f5e', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":232,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":200,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe364820', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":212,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe327bc1', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":228,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe380740', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":200,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe380584', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":204,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe364085', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":255,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f345d', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":208,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe380743', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":232,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe327b56', payload '{"brightness":80,"color":{"x":0.3876,"y":0.5387},"color_mode":"xy","color_temp":250,"color_temp_startup":250,"level_config":{"on_level":"previous"},"linkquality":188,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"battery":90,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/all_lights', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"power_on_behavior":"on","state":"ON"}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/a', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"state":"ON"}'
+[2025-01-14 16:56:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/b', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"state":"ON"}'
+[2025-01-14 16:56:04] info: 	z2m: Zigbee2MQTT started!
+[2025-01-14 16:56:19] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"brightness_up_click","battery":90,"linkquality":248,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 16:56:23] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"toggle","battery":90,"linkquality":248,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 16:56:25] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"brightness_down_click","battery":90,"linkquality":255,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 16:56:26] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"toggle","battery":90,"linkquality":255,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 16:56:28] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"arrow_left_click","battery":90,"linkquality":252,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 16:58:11] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/state', payload '{"state":"offline"}'
+[2025-01-14 16:58:11] info: 	z2m: Disconnecting from MQTT server
+[2025-01-14 16:58:11] info: 	z2m: Stopping zigbee-herdsman...
+[2025-01-14 16:58:11] info: 	zh:controller: Wrote coordinator backup to '/app/data/coordinator_backup.json'
+[2025-01-14 16:58:11] info: 	z2m: Stopped zigbee-herdsman
+[2025-01-14 16:58:11] info: 	z2m: Stopped Zigbee2MQTT

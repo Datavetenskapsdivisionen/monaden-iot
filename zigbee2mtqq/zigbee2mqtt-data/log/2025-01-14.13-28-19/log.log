@@ -1,0 +1,132 @@
+[2025-01-14 13:28:19] info: 	z2m: Logging to console, file (filename: log.log)
+[2025-01-14 13:28:19] info: 	z2m: Starting Zigbee2MQTT version 1.39.0 (commit #0326926)
+[2025-01-14 13:28:19] info: 	z2m: Starting zigbee-herdsman (0.50.1)
+[2025-01-14 13:28:19] warning: 	zh:ezsp: Deprecated driver 'ezsp' currently in use, 'ember' will become the officially supported EmberZNet driver in next release. If using Zigbee2MQTT see https://github.com/Koenkk/zigbee2mqtt/discussions/21462
+[2025-01-14 13:28:24] info: 	z2m: zigbee-herdsman started (resumed)
+[2025-01-14 13:28:24] info: 	z2m: Coordinator firmware version: '{"meta":{"maintrel":"4 ","majorrel":"7","minorrel":"4","product":13,"revision":"7.4.4.0 build 0"},"type":"EZSP v13"}'
+[2025-01-14 13:28:24] info: 	z2m: Currently 13 devices are joined:
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe6cd773 (0xcc86ecfffe6cd773): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe30db22 (0xcc86ecfffe30db22): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe7de451 (0xcc86ecfffe7de451): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe363f5e (0xcc86ecfffe363f5e): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe2f3452 (0xcc86ecfffe2f3452): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe364820 (0xcc86ecfffe364820): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe327bc1 (0xcc86ecfffe327bc1): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe380740 (0xcc86ecfffe380740): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe380584 (0xcc86ecfffe380584): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe364085 (0xcc86ecfffe364085): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe2f345d (0xcc86ecfffe2f345d): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe380743 (0xcc86ecfffe380743): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] info: 	z2m: 0xcc86ecfffe327b56 (0xcc86ecfffe327b56): LED1925G6 - IKEA TRADFRI bulb E12/E14/E17, color/white spectrum, globe, opal, 440/450/470 lm (Router)
+[2025-01-14 13:28:24] warning: 	z2m: `permit_join` set to  `true` in configuration.yaml.
+[2025-01-14 13:28:24] warning: 	z2m: Allowing new devices to join.
+[2025-01-14 13:28:24] warning: 	z2m: Set `permit_join` to `false` once you joined all devices.
+[2025-01-14 13:28:24] info: 	z2m: Zigbee: allowing new devices to join.
+[2025-01-14 13:28:24] info: 	z2m: Connecting to MQTT server at mqtt://mqtt
+[2025-01-14 13:28:24] info: 	z2m: Connected to MQTT server
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/state', payload '{"state":"online"}'
+[2025-01-14 13:28:24] info: 	z2m: Started frontend on port 8080
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe6cd773', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":224,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe30db22', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":212,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe7de451', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":248,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe363f5e', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":232,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":200,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe364820', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":212,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe327bc1', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":228,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe380740', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":200,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe380584', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":204,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe364085', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":255,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f345d', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":208,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe380743', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":232,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe327b56', payload '{"brightness":80,"color":{"x":0.3876,"y":0.5387},"color_mode":"xy","color_temp":250,"color_temp_startup":250,"level_config":{"on_level":"previous"},"linkquality":188,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/all_lights', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"power_on_behavior":"on","state":"ON"}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/a', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"state":"ON"}'
+[2025-01-14 13:28:24] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/b', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"state":"ON"}'
+[2025-01-14 13:28:24] info: 	z2m: Zigbee2MQTT started!
+[2025-01-14 13:28:55] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":224,"state":"OFF","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:55] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/all_lights', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"power_on_behavior":"on","state":"ON"}'
+[2025-01-14 13:28:55] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":212,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:55] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/a', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"state":"ON"}'
+[2025-01-14 13:28:57] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":216,"state":"OFF","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:58] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":204,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:58] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":212,"state":"OFF","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:28:59] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":200,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:29:06] info: 	z2m: Start Touchlink scan
+[2025-01-14 13:29:06] info: 	zh:controller:touchlink: Set InterPAN channel to '11'
+[2025-01-14 13:29:07] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:07] info: 	zh:controller:touchlink: Set InterPAN channel to '15'
+[2025-01-14 13:29:07] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:07] info: 	zh:controller:touchlink: Set InterPAN channel to '20'
+[2025-01-14 13:29:08] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:08] info: 	zh:controller:touchlink: Set InterPAN channel to '25'
+[2025-01-14 13:29:08] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:08] info: 	zh:controller:touchlink: Set InterPAN channel to '12'
+[2025-01-14 13:29:09] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:09] info: 	zh:controller:touchlink: Set InterPAN channel to '13'
+[2025-01-14 13:29:09] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:09] info: 	zh:controller:touchlink: Set InterPAN channel to '14'
+[2025-01-14 13:29:10] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:10] info: 	zh:controller:touchlink: Set InterPAN channel to '16'
+[2025-01-14 13:29:10] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:10] info: 	zh:controller:touchlink: Set InterPAN channel to '17'
+[2025-01-14 13:29:11] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:11] info: 	zh:controller:touchlink: Set InterPAN channel to '18'
+[2025-01-14 13:29:11] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:11] info: 	zh:controller:touchlink: Set InterPAN channel to '19'
+[2025-01-14 13:29:12] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:12] info: 	zh:controller:touchlink: Set InterPAN channel to '21'
+[2025-01-14 13:29:12] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:12] info: 	zh:controller:touchlink: Set InterPAN channel to '22'
+[2025-01-14 13:29:13] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:13] info: 	zh:controller:touchlink: Set InterPAN channel to '23'
+[2025-01-14 13:29:13] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:13] info: 	zh:controller:touchlink: Set InterPAN channel to '24'
+[2025-01-14 13:29:14] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:14] info: 	zh:controller:touchlink: Set InterPAN channel to '26'
+[2025-01-14 13:29:14] warning: 	zh:controller:touchlink: Scan request failed or was not answered: 'Error: Timeout - null - 254 - null - 4096 - 1 after 500ms'
+[2025-01-14 13:29:14] info: 	zh:controller:touchlink: Restore InterPAN channel
+[2025-01-14 13:29:17] info: 	z2m: Finished Touchlink scan
+[2025-01-14 13:29:17] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/response/touchlink/scan', payload '{"data":{"found":[]},"status":"ok","transaction":"ddar8-1"}'
+[2025-01-14 13:29:22] info: 	zh:controller: Interview for '0x0c4314fffe19426b' started
+[2025-01-14 13:29:22] info: 	z2m: Device '0x0c4314fffe19426b' joined
+[2025-01-14 13:29:22] info: 	z2m: Starting interview of '0x0c4314fffe19426b'
+[2025-01-14 13:29:22] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/event', payload '{"data":{"friendly_name":"0x0c4314fffe19426b","ieee_address":"0x0c4314fffe19426b"},"type":"device_joined"}'
+[2025-01-14 13:29:22] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/event', payload '{"data":{"friendly_name":"0x0c4314fffe19426b","ieee_address":"0x0c4314fffe19426b","status":"started"},"type":"device_interview"}'
+[2025-01-14 13:29:56] info: 	zh:controller: Succesfully interviewed '0x0c4314fffe19426b'
+[2025-01-14 13:29:56] info: 	z2m: Successfully interviewed '0x0c4314fffe19426b', device has successfully been paired
+[2025-01-14 13:29:56] info: 	z2m: Device '0x0c4314fffe19426b' is supported, identified as: IKEA TRADFRI remote control (E1524/E1810)
+[2025-01-14 13:29:56] info: 	z2m: Configuring '0x0c4314fffe19426b'
+[2025-01-14 13:29:56] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/event', payload '{"data":{"definition":{"description":"TRADFRI remote control","exposes":[{"access":2,"category":"config","description":"Initiate device identification. This device is asleep by default.You may need to wake it up first before sending the identify command.","label":"Identify","name":"identify","property":"identify","type":"enum","values":["identify"]},{"access":5,"category":"diagnostic","description":"Remaining battery in %","label":"Battery","name":"battery","property":"battery","type":"numeric","unit":"%","value_max":100,"value_min":0},{"access":1,"category":"diagnostic","description":"Triggered action (e.g. a button click)","label":"Action","name":"action","property":"action","type":"enum","values":["toggle","brightness_up_click","brightness_down_click","brightness_up_hold","brightness_up_release","brightness_down_hold","brightness_down_release","toggle_hold","arrow_left_click","arrow_left_hold","arrow_left_release","arrow_right_click","arrow_right_hold","arrow_right_release"]},{"access":1,"category":"diagnostic","description":"Link quality (signal strength)","label":"Linkquality","name":"linkquality","property":"linkquality","type":"numeric","unit":"lqi","value_max":255,"value_min":0}],"model":"E1524/E1810","options":[{"access":2,"description":"Sets the duration of the identification procedure in seconds (i.e., how long the device would flash).The value ranges from 1 to 30 seconds (default: 3).","label":"Identify timeout","name":"identify_timeout","property":"identify_timeout","type":"numeric","value_max":30,"value_min":1},{"access":2,"description":"Set to false to disable the legacy integration (highly recommended), will change structure of the published payload (default true).","label":"Legacy","name":"legacy","property":"legacy","type":"binary","value_off":false,"value_on":true}],"supports_ota":true,"vendor":"IKEA"},"friendly_name":"0x0c4314fffe19426b","ieee_address":"0x0c4314fffe19426b","status":"successful","supported":true},"type":"device_interview"}'
+[2025-01-14 13:30:01] info: 	z2m: Successfully configured '0x0c4314fffe19426b'
+[2025-01-14 13:30:10] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe363f5e', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":255,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:30:46] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe6cd773', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":232,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:31:14] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe7de451', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":232,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:31:17] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe30db22', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":192,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:31:25] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe364820', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":232,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:31:46] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"linkquality":255,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 13:32:00] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe364085', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":255,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:32:27] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe327bc1', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":248,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:32:28] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe380743', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":240,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:32:52] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe2f3452', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":255,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 13:32:53] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0xcc86ecfffe380740', payload '{"brightness":61,"color":{"x":0.6495,"y":0.299},"color_mode":"xy","color_temp":250,"level_config":{"on_level":"previous"},"linkquality":244,"state":"ON","update":{"installed_version":268572245,"latest_version":268572245,"state":"idle"}}'
+[2025-01-14 14:18:04] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"toggle","linkquality":255,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 14:18:11] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"toggle","linkquality":232,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 14:18:11] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"toggle","linkquality":232,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 14:18:11] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"toggle","linkquality":236,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 14:18:16] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"brightness_up_hold","linkquality":196,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 14:18:18] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"brightness_up_release","linkquality":204,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 14:18:18] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"action":"toggle","linkquality":232,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 14:28:19] warning: 	zh:ezsp: Deprecated driver 'ezsp' currently in use, 'ember' will become the officially supported EmberZNet driver in next release. If using Zigbee2MQTT see https://github.com/Koenkk/zigbee2mqtt/discussions/21462
+[2025-01-14 14:29:36] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/0x0c4314fffe19426b', payload '{"battery":90,"linkquality":255,"update":{"installed_version":604241925,"latest_version":604241925,"state":"idle"}}'
+[2025-01-14 14:55:46] error: 	zh:ezsp:ezsp: Connection attempt 1 error: Error: Error: No such device or address, cannot open /dev/ttyACM0
+[2025-01-14 14:55:51] error: 	zh:ezsp:ezsp: Connection attempt 2 error: Error: Error: No such device or address, cannot open /dev/ttyACM0
+[2025-01-14 15:09:44] info: 	z2m: Connected to MQTT server
+[2025-01-14 15:09:44] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/state', payload '{"state":"online"}'
+[2025-01-14 15:09:51] error: 	zh:ezsp:ezsp: Connection attempt 3 error: Error: Error: No such device or address, cannot open /dev/ttyACM0
+[2025-01-14 15:10:06] error: 	zh:ezsp:ezsp: Connection attempt 4 error: Error: Error: No such device or address, cannot open /dev/ttyACM0
+[2025-01-14 15:10:06] error: 	z2m: Adapter disconnected, stopping
+[2025-01-14 15:10:06] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/state', payload '{"state":"offline"}'
+[2025-01-14 15:10:06] info: 	z2m: Disconnecting from MQTT server
+[2025-01-14 15:10:06] info: 	z2m: Stopping zigbee-herdsman...
+[2025-01-14 15:10:06] info: 	z2m: Stopped zigbee-herdsman
+[2025-01-14 15:10:06] info: 	z2m: Stopped Zigbee2MQTT

@@ -1,0 +1,97 @@
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://mqtt
+serial:
+  port: /dev/ttyACM0
+frontend:
+  port: 8080
+advanced:
+  pan_id: 6755
+  network_key:
+    - 163
+    - 63
+    - 171
+    - 115
+    - 2
+    - 58
+    - 120
+    - 247
+    - 15
+    - 190
+    - 98
+    - 56
+    - 143
+    - 223
+    - 187
+    - 149
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+  legacy_availability_payload: false
+  log_level: info
+device_options:
+  legacy: false
+devices:
+  '0x0c4314fffe19426b':
+    friendly_name: '0x0c4314fffe19426b'
+  '0xcc86ecfffe327b56':
+    friendly_name: '0xcc86ecfffe327b56'
+  '0xcc86ecfffe380740':
+    friendly_name: '0xcc86ecfffe380740'
+  '0xcc86ecfffe380584':
+    friendly_name: '0xcc86ecfffe380584'
+  '0xcc86ecfffe364085':
+    friendly_name: '0xcc86ecfffe364085'
+  '0xcc86ecfffe2f3452':
+    friendly_name: '0xcc86ecfffe2f3452'
+  '0xcc86ecfffe363f5e':
+    friendly_name: '0xcc86ecfffe363f5e'
+  '0xcc86ecfffe6cd773':
+    friendly_name: '0xcc86ecfffe6cd773'
+  '0xcc86ecfffe30db22':
+    friendly_name: '0xcc86ecfffe30db22'
+  '0xcc86ecfffe364820':
+    friendly_name: '0xcc86ecfffe364820'
+  '0xcc86ecfffe327bc1':
+    friendly_name: '0xcc86ecfffe327bc1'
+  '0xcc86ecfffe380743':
+    friendly_name: '0xcc86ecfffe380743'
+  '0xcc86ecfffe7de451':
+    friendly_name: '0xcc86ecfffe7de451'
+  '0xcc86ecfffe2f345d':
+    friendly_name: '0xcc86ecfffe2f345d'
+groups:
+  '1':
+    friendly_name: all_lights
+    devices:
+      - 0xcc86ecfffe2f3452/1
+      - 0xcc86ecfffe2f345d/1
+      - 0xcc86ecfffe30db22/1
+      - 0xcc86ecfffe327bc1/1
+      - 0xcc86ecfffe363f5e/1
+      - 0xcc86ecfffe364085/1
+      - 0xcc86ecfffe364820/1
+      - 0xcc86ecfffe380584/1
+      - 0xcc86ecfffe380740/1
+      - 0xcc86ecfffe380743/1
+      - 0xcc86ecfffe6cd773/1
+      - 0xcc86ecfffe7de451/1
+  '2':
+    friendly_name: a
+    devices:
+      - 0xcc86ecfffe2f3452/1
+      - 0xcc86ecfffe2f345d/1
+      - 0xcc86ecfffe30db22/1
+      - 0xcc86ecfffe327b56/1
+      - 0xcc86ecfffe327bc1/1
+      - 0xcc86ecfffe363f5e/1
+  '3':
+    friendly_name: b
+    devices:
+      - 0xcc86ecfffe364085/1
+      - 0xcc86ecfffe364820/1
+      - 0xcc86ecfffe380584/1
+      - 0xcc86ecfffe380740/1
+      - 0xcc86ecfffe380743/1
+      - 0xcc86ecfffe6cd773/1
+      - 0xcc86ecfffe7de451/1
