@@ -1,4 +1,4 @@
-
-*.pyc
 /backend/__pycache__
 *.pyc
+zigbee2mtqq/zigbee2mqtt-data/log
+zigbee2mtqq/zigbee2mqtt-data/log/*
