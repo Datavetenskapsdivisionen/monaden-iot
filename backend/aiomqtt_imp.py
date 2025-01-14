@@ -93,7 +93,8 @@ async def run_with_monaden_kit(main: Callable[[MonadenKit], Coroutine[None, None
             devices = await bridge.get_devices()
             lights: List[IkeaColorLight_devori[bytes, Message_aio]] = []
             remotes: List[IKEA_tradfri_remote_devori[bytes, Message_aio]] = []
-
+            if len(devices) == 0:
+                raise Exception("No devices found, is addapter/bridge connected?")
 
             
             for device in devices[1:]:

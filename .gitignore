@@ -1,7 +1,11 @@
 /backend/__pycache__
 *.pyc
+<<<<<<< Updated upstream
 zigbee2mtqq/zigbee2mqtt-data/log
 zigbee2mtqq/zigbee2mqtt-data/log/*
 zigbee2mtqq/zigbee2mqtt-data/coordinator_backup.json
 zigbee2mtqq/zigbee2mqtt-data/database.db
 zigbee2mtqq/zigbee2mqtt-data/state.json
+=======
+/zigbee2mtqq/zigbee2mqtt-data/log
+>>>>>>> Stashed changes

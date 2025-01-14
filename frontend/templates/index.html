@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belysning</title>
+    <title></title>
     <link rel="stylesheet" href='/static/style.css'/>
 </head>
 
@@ -18,23 +18,23 @@
         <form id="mainform" action="/light" method="POST" target="dummyframe">
 
             <div class="colorcontainer">
-                <label class="color" for="color">color selector</label>
+                <label class="color" for="color">välj färg: </label>
                 <input class="color" id="color" name="color" type="color"></input>
             </div>
             <div class="slidercontainer">
                 <label class="dimmertext" for="dimmer">dimmer</label>
                 <input class="slider" id="dimmer" name="dimmer" type="range" min="1" max="255" value="69"></input>
             </div>
-            <input class="btn info" id="submitbutton" type="submit" value="deploy"></input>
+            <input class="btn info" id="submitbutton" type="submit" value="OK"></input>
         </form>
         
-        <h1>Ljud</h1>
+        <h1>Chromecast</h1>
+        <img src="{{app_image_path}}" alt="App Icon">
         <form id="mainform" action="/sound" method="POST" target="dummyframe">
             <div class="slidercontainer">
                 <label class="dimmertext" for="volume">volume</label>
-                <input class="slider" id="volume" name="volume" type="range" min="0" max="1000" value="100"></input>
+                <input class="slider" id="volume" name="volume" type="range" min="0" max="1000" value="100" onchange="this.form.submit()"></input>
             </div>
-            <input class="btn info" id="submitbutton" type="submit" value="deploy"></input>
         </form>
     </section>
 </body>

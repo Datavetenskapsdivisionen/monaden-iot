@@ -11,7 +11,7 @@ from random import randint
 from typing import Tuple, Callable
 #from SoundAnalysis.beatFinder import PyAudioBF, BeatFinder
 import time
-from pynput import keyboard
+#from pynput import keyboard
 import sys
 import random
 
@@ -280,9 +280,11 @@ async def glögkväll(kit: MonadenKit):
         await asyncio.sleep(wait_time)
    
 
-
+async def test_controller(kit: MonadenKit):
+    while True:
+        print(await kit.TRADFRI_remotes[0].get_action())
 
 if __name__ == "__main__":  
-    asyncio.run(run_with_monaden_kit(glögkväll,HOST,PORT,PREFIX,verbose=False))
+    asyncio.run(run_with_monaden_kit(test_controller,HOST,PORT,PREFIX,verbose=False))
     #asyncio.run(main2())
    

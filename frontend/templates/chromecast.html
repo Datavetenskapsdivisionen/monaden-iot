@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .active {
+            background-color: green;
+        }
+        .idel {
+            background-color: red;
+        }
+    </style>
+    <meta http-equiv="refresh" content="5">
+</head>
+<body>
+    <div class="circle {{ status }}"></div>
+    <span>{{ app }}</span>
+</body>
+</html>
