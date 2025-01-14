@@ -1,0 +1,137 @@
+{
+    "1": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "2": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "3": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe2f3452": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe2f345d": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe30db22": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe327bc1": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe363f5e": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe364085": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe364820": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe380584": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe380740": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe380743": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe6cd773": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    },
+    "0xcc86ecfffe7de451": {
+        "state": "ON",
+        "brightness": 69,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.4812,
+            "y": 0.3974
+        }
+    }
+}
