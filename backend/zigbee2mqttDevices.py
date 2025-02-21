@@ -1,5 +1,5 @@
 from typing import Callable, Literal, Dict, Any, List, LiteralString, Type
-from .Devices import IkeaColorLight, IKEA_tradfri_remote
+from .Devices import IkeaColorLight, IKEA_tradfri_remote, IKEA_tradfri_remote_action_type
 from DevOri.mqttDevices import Device, Communicator
 from DevOri.utils import bytes2any 
 from enum import Enum, auto
@@ -246,20 +246,7 @@ class IKEA_tradfri_remote_devori[send_T, recive_T](Zigbee2mqttDevice[send_T, Lit
 
     
 
-    async def get_action(self) -> Literal["toggle", 
-                                    "brightness_up_click", 
-                                    "brightness_down_click", 
-                                    "brightness_up_hold", 
-                                    "brightness_up_release", 
-                                    "brightness_down_hold",
-                                    "brightness_down_release", 
-                                    "toggle_hold", 
-                                    "arrow_left_click", 
-                                    "arrow_left_hold", 
-                                    "arrow_left_release", 
-                                    "arrow_right_click", 
-                                    "arrow_right_hold", 
-                                    "arrow_right_release"]:
+    async def get_action(self) -> IKEA_tradfri_remote_action_type:
         message = await self.recive_from("", RemoteKinds.ACTION)
         d = self._recive_T2dict(message)
         action:str = d["action"]
@@ -303,7 +290,7 @@ class IKEA_tradfri_remote_devori[send_T, recive_T](Zigbee2mqttDevice[send_T, Lit
         d2 = self._recive_T2dict(message)
         i: int = d2["battery"]
         return i
-    
+
 
 
         

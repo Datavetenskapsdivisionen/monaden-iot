@@ -15,7 +15,7 @@ import pychromecast.controllers.receiver
 sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
 
 
-from typing import Tuple, Callable, List, LiteralString, Literal, Any
+from typing import Tuple, Callable, List, LiteralString, Literal, Any, Dict, NoReturn, Coroutine
 from flask import Flask, request, redirect, url_for, render_template
 from flask_socketio import SocketIO, emit
 from backend.aiomqtt_imp import run_with_monaden_kit, MonadenKit
@@ -28,7 +28,7 @@ from concurrent.futures import ThreadPoolExecutor
 import argparse
 import pychromecast
 from dataclasses import asdict
-
+from backend.Devices import IKEA_tradfri_remote_action_type
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--host', type=str,default="localhost")
@@ -51,10 +51,84 @@ BACKEND_PREFIX = args.backend_prefix
 
 lamp_T = Tuple[int, Tuple[int, int, int]]
 light_changes: multiprocessing.queues.Queue[lamp_T] = multiprocessing.Queue()
+
+
+
+
+
 chromecast_changed: multiprocessing.queues.Queue[Chromecast.Category] = multiprocessing.Queue()
 
 chromecast_idel_status = multiprocessing.Value(ctypes.c_bool, False)
 chromecast_app = multiprocessing.Value(ctypes.c_char_p, "none".encode())
+async def remote_action_handelers_for_cc_sound(action: IKEA_tradfri_remote_action_type):
+    match action:
+        case "arrow_left_click":
+            pass
+        case "arrow_left_hold":
+            await mp2async(chromecast_changed.put, (Chromecast.QueuePrevious(None), ))
+        case "arrow_left_release":
+            pass
+        case "arrow_right_click":
+            pass
+        case "arrow_right_hold":
+            await mp2async(chromecast_changed.put, (Chromecast.QueueNext(None), ))
+        case "arrow_right_release":
+            pass
+        case "brightness_down_click":
+            await mp2async(chromecast_changed.put, (Chromecast.VolumeDown(None), ))
+        case "brightness_down_hold":
+            await mp2async(chromecast_changed.put, (Chromecast.Volume(0), ))
+        case "brightness_down_release":
+            pass
+        case "brightness_up_click":
+            await mp2async(chromecast_changed.put, (Chromecast.VolumeUp(None), ))
+        case "brightness_up_hold":
+            await mp2async(chromecast_changed.put, (Chromecast.VolumeUp(None), ))
+        case "brightness_up_release":
+            pass
+        case "toggle":
+            await mp2async(chromecast_changed.put, (Chromecast.Toggle_play_pause(None), ))
+        case "toggle_hold":
+            pass
+def register_remote_action_handelers_for_IKEA_lights(all_lights: IkeaColorLight):
+    async def remote_action_handelers_for_IKEA_lights(action: IKEA_tradfri_remote_action_type):
+        match action:
+            case "arrow_left_click":
+                pass
+            case "arrow_left_hold":
+                pass
+            case "arrow_left_release":
+                pass
+            case "arrow_right_click":
+                pass
+            case "arrow_right_hold":
+                pass
+            case "arrow_right_release":
+                pass
+            case "brightness_down_click":
+                await all_lights.step_brightness(-20)
+            case "brightness_down_hold":
+                await all_lights.set_brightness(0)
+            case "brightness_down_release":
+                pass
+            case "brightness_up_click":
+                await all_lights.step_brightness(20)
+            case "brightness_up_hold":
+                await all_lights.step_brightness(254)
+            case "brightness_up_release":
+                pass
+            case "toggle":
+                await all_lights.set_state("TOGGLE")
+            case "toggle_hold":
+                pass
+        remote_action_handelers["lights"] = remote_action_handelers_for_IKEA_lights
+
+remote_mode_type = Literal["sound", "lights"]
+remote_mode_changes: multiprocessing.queues.Queue[remote_mode_type] = multiprocessing.Queue()
+remote_action_handelers: Dict[remote_mode_type, Callable[[IKEA_tradfri_remote_action_type], Coroutine[Any, Any, None]]] = {
+    "sound": remote_action_handelers_for_cc_sound
+}
+
 
 async def mp2async[*args,ret](func: Callable[[*args],ret], args: Tuple[*args] = ()) -> ret:
     loop = asyncio.get_running_loop()   
@@ -99,18 +173,33 @@ def sound():
     chromecast_changed.put(Chromecast.Volume(int(volume) / 1000))
     return redirect(url_for('index'))
 
+@app.route('/controller_mode', methods=['POST'])
+def sound():
+    mode: str | None  = request.form.get('mode')
+    if isinstance(mode, remote_mode_type):
+        remote_mode_changes.put(mode)
+    else:
+        print(f"Wrong mode string, got: {mode}")
+    return redirect(url_for('index'))
+
 
 def zigbee_main(verbose: bool = False):
     async def main(kit: MonadenKit):
         await kit.all_lights.set_state("OFF")
         await kit.all_lights.set_state("ON")
         await asyncio.sleep(0.5)
+        register_remote_action_handelers_for_IKEA_lights(kit.all_lights)
         async def lights():
             while True: 
                 brightness, (r,g,b) = await mp2async(light_changes.get)
                 print((brightness, (r,g,b)))
                 await kit.all_lights.set_brightness(brightness)
                 await kit.all_lights.set_color(IkeaColorLight.ColorRGB(r,g,b))
+        controller_mode: remote_mode_type = "sound"
+        async def controller_mode_listener():
+            while True:
+                global controller_mode 
+                controller_mode = await mp2async(remote_mode_changes.get)
         async def controller():
             hold_mute = False
             remote = kit.TRADFRI_remotes[0]
@@ -118,35 +207,7 @@ def zigbee_main(verbose: bool = False):
                 print("controller")
                 action = await remote.get_action()
                 print("got from controller:", action)
-                match action:
-                    case "arrow_left_click":
-                        pass
-                    case "arrow_left_hold":
-                        await mp2async(chromecast_changed.put, (Chromecast.QueuePrevious(None), ))
-                    case "arrow_left_release":
-                        pass
-                    case "arrow_right_click":
-                        pass
-                    case "arrow_right_hold":
-                        await mp2async(chromecast_changed.put, (Chromecast.QueueNext(None), ))
-                    case "arrow_right_release":
-                        pass
-                    case "brightness_down_click":
-                        await mp2async(chromecast_changed.put, (Chromecast.VolumeDown(None), ))
-                    case "brightness_down_hold":
-                        await mp2async(chromecast_changed.put, (Chromecast.Volume(0), ))
-                    case "brightness_down_release":
-                        pass
-                    case "brightness_up_click":
-                        await mp2async(chromecast_changed.put, (Chromecast.VolumeUp(None), ))
-                    case "brightness_up_hold":
-                        await mp2async(chromecast_changed.put, (Chromecast.VolumeUp(None), ))
-                    case "brightness_up_release":
-                        pass
-                    case "toggle":
-                        await mp2async(chromecast_changed.put, (Chromecast.Toggle_play_pause(None), ))
-                    case "toggle_hold":
-                        pass
+                await remote_action_handelers[controller_mode](action)
 
         
         await asyncio.gather(lights(), controller())

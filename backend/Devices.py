@@ -63,11 +63,7 @@ class IkeaColorLight(Protocol):
     async def get_allow_color_and_temperature_while_off(self) -> bool:
         ...
 
-
-class IKEA_tradfri_remote(Protocol):
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
-        ...
-    async def get_action(self) -> Literal["toggle", 
+IKEA_tradfri_remote_action_type = Literal["toggle", 
                                     "brightness_up_click", 
                                     "brightness_down_click", 
                                     "brightness_up_hold", 
@@ -80,7 +76,11 @@ class IKEA_tradfri_remote(Protocol):
                                     "arrow_left_release", 
                                     "arrow_right_click", 
                                     "arrow_right_hold", 
-                                    "arrow_right_release"]:
+                                    "arrow_right_release"]
+class IKEA_tradfri_remote(Protocol):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        ...
+    async def get_action(self) -> IKEA_tradfri_remote_action_type:
         ...
     async def get_battery_now(self) -> int:
         ...

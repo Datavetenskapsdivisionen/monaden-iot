@@ -1,137 +1,137 @@
 {
     "1": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "2": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "3": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe2f3452": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe2f345d": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe30db22": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe327bc1": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe363f5e": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe364085": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe364820": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe380584": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe380740": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe380743": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe6cd773": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0xcc86ecfffe7de451": {
         "state": "ON",
-        "brightness": 69,
+        "brightness": 70,
         "color_mode": "xy",
         "color": {
-            "x": 0.19,
-            "y": 0.2184
+            "x": 0.6774,
+            "y": 0.2978
         }
     },
     "0x0c4314fffe19426b": {}
