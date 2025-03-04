@@ -60,7 +60,22 @@ chromecast_changed: multiprocessing.queues.Queue[Chromecast.Category] = multipro
 
 chromecast_idel_status = multiprocessing.Value(ctypes.c_bool, False)
 chromecast_app = multiprocessing.Value(ctypes.c_char_p, "none".encode())
+color_wheel_t = Literal["red", "blue", "purple"]
+color_wheel: Dict[color_wheel_t, IkeaColorLight.ColorRGB] = {
+    "red": IkeaColorLight.ColorRGB(256, 0, 0),
+    "blue":  IkeaColorLight.ColorRGB(0, 0, 256),
+    "purple": IkeaColorLight.ColorRGB(206, 0, 252)
+}
+async def sleep_then_do[*args,ret](
+    seconds: float, 
+    func: Callable[[*args], Coroutine[Any, Any, ret]], 
+     args: Tuple[*args] = ()
+) -> ret:
+    await asyncio.sleep(seconds)
+    return await func(*args)
+
 async def remote_action_handelers_for_cc_sound(action: IKEA_tradfri_remote_action_type):
+
     match action:
         case "arrow_left_click":
             pass
@@ -90,17 +105,25 @@ async def remote_action_handelers_for_cc_sound(action: IKEA_tradfri_remote_actio
             await mp2async(chromecast_changed.put, (Chromecast.Toggle_play_pause(None), ))
         case "toggle_hold":
             pass
+
 def register_remote_action_handelers_for_IKEA_lights(all_lights: IkeaColorLight):
+    current_collor:color_wheel_t = "red"
     async def remote_action_handelers_for_IKEA_lights(action: IKEA_tradfri_remote_action_type):
+        print("handeld light action")
+        nonlocal current_collor 
         match action:
             case "arrow_left_click":
-                pass
+                keys = list(color_wheel.keys())
+                current_collor = keys[(keys.index(current_collor) - 1) % len(color_wheel.keys())]
+                await all_lights.set_color(color_wheel[current_collor])
             case "arrow_left_hold":
                 pass
             case "arrow_left_release":
                 pass
             case "arrow_right_click":
-                pass
+                keys = list(color_wheel.keys())
+                current_collor = keys[(keys.index(current_collor) + 1) % len(color_wheel.keys())]
+                await all_lights.set_color(color_wheel[current_collor])
             case "arrow_right_hold":
                 pass
             case "arrow_right_release":
@@ -108,7 +131,7 @@ def register_remote_action_handelers_for_IKEA_lights(all_lights: IkeaColorLight)
             case "brightness_down_click":
                 await all_lights.step_brightness(-20)
             case "brightness_down_hold":
-                await all_lights.set_brightness(0)
+                await all_lights.set_brightness(10)
             case "brightness_down_release":
                 pass
             case "brightness_up_click":
@@ -121,8 +144,7 @@ def register_remote_action_handelers_for_IKEA_lights(all_lights: IkeaColorLight)
                 await all_lights.set_state("TOGGLE")
             case "toggle_hold":
                 pass
-        remote_action_handelers["lights"] = remote_action_handelers_for_IKEA_lights
-
+    remote_action_handelers["lights"] = remote_action_handelers_for_IKEA_lights
 remote_mode_type = Literal["sound", "lights"]
 remote_mode_changes: multiprocessing.queues.Queue[remote_mode_type] = multiprocessing.Queue()
 remote_action_handelers: Dict[remote_mode_type, Callable[[IKEA_tradfri_remote_action_type], Coroutine[Any, Any, None]]] = {
@@ -155,6 +177,7 @@ def light():
         g = int(color[3:5], base=16)
         b = int(color[5:], base=16)
         light_changes.put((int(dimmer), (r,g,b)))
+        print(f"put {(int(dimmer), (r,g,b))}")
     if 'action' in request.form:
         action = request.form['action']
         # Handle the button presses here
@@ -185,15 +208,17 @@ def sound():
 
 def zigbee_main(verbose: bool = False):
     async def main(kit: MonadenKit):
-        controller_mode: remote_mode_type = "sound"
+        controller_mode: remote_mode_type = "lights"
         await kit.all_lights.set_state("OFF")
         await kit.all_lights.set_state("ON")
         await asyncio.sleep(0.5)
         register_remote_action_handelers_for_IKEA_lights(kit.all_lights)
+        print("????")
         async def lights():
-            while True: 
+            while True:
+                 
                 brightness, (r,g,b) = await mp2async(light_changes.get)
-                print((brightness, (r,g,b)))
+                print("got this from light_changes", (brightness, (r,g,b)))
                 await kit.all_lights.set_brightness(brightness)
                 await kit.all_lights.set_color(IkeaColorLight.ColorRGB(r,g,b))
         async def controller_mode_listener(controller_mode: remote_mode_type):
@@ -201,18 +226,25 @@ def zigbee_main(verbose: bool = False):
                 controller_mode = await mp2async(remote_mode_changes.get)
         async def controller(controller_mode: remote_mode_type):
             remote = kit.TRADFRI_remotes[0]
+            toggle_task: asyncio.Task[None] | None = None
             while True:
                 action = await remote.get_action()
-                if action == "toggle_hold":
-                    keys = list(remote_action_handelers.keys())
-                    controller_mode = keys[(keys.index(controller_mode) + 1) % len(remote_action_handelers.keys())]
-                    print(f"Switched controller mode to: {controller_mode}")
+                if action == "toggle":
+                    if toggle_task != None and not toggle_task.done():
+                        toggle_task.cancel()
+                        print("got double toggle")
+                        keys = list(remote_action_handelers.keys())
+                        controller_mode = keys[(keys.index(controller_mode) + 1) % len(remote_action_handelers.keys())]
+                        print(f"Switched controller mode to: {controller_mode}")
+                    else:
+                        print("got toggle")
+                        toggle_task = asyncio.Task(sleep_then_do(0.3,remote_action_handelers[controller_mode], (action,)))
                     continue
                 print("got from controller:", action)
                 await remote_action_handelers[controller_mode](action)
 
         
-        await asyncio.gather(lights(),controller_mode_listener(controller_mode), controller(controller_mode))
+        await asyncio.gather(lights(), controller(controller_mode))
 
     asyncio.run(run_with_monaden_kit(main,BACKEND_HOST,BACKEND_PORT, BACKEND_PREFIX,
                                                  verbose))
