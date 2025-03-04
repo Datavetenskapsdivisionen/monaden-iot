@@ -185,6 +185,7 @@ def sound():
 
 def zigbee_main(verbose: bool = False):
     async def main(kit: MonadenKit):
+        controller_mode: remote_mode_type = "sound"
         await kit.all_lights.set_state("OFF")
         await kit.all_lights.set_state("ON")
         await asyncio.sleep(0.5)
@@ -195,22 +196,23 @@ def zigbee_main(verbose: bool = False):
                 print((brightness, (r,g,b)))
                 await kit.all_lights.set_brightness(brightness)
                 await kit.all_lights.set_color(IkeaColorLight.ColorRGB(r,g,b))
-        controller_mode: remote_mode_type = "sound"
-        async def controller_mode_listener():
+        async def controller_mode_listener(controller_mode: remote_mode_type):
             while True:
-                global controller_mode 
                 controller_mode = await mp2async(remote_mode_changes.get)
-        async def controller():
-            hold_mute = False
+        async def controller(controller_mode: remote_mode_type):
             remote = kit.TRADFRI_remotes[0]
             while True:
-                print("controller")
                 action = await remote.get_action()
+                if action == "toggle_hold":
+                    keys = list(remote_action_handelers.keys())
+                    controller_mode = keys[(keys.index(controller_mode) + 1) % len(remote_action_handelers.keys())]
+                    print(f"Switched controller mode to: {controller_mode}")
+                    continue
                 print("got from controller:", action)
                 await remote_action_handelers[controller_mode](action)
 
         
-        await asyncio.gather(lights(), controller())
+        await asyncio.gather(lights(),controller_mode_listener(controller_mode), controller(controller_mode))
 
     asyncio.run(run_with_monaden_kit(main,BACKEND_HOST,BACKEND_PORT, BACKEND_PREFIX,
                                                  verbose))
