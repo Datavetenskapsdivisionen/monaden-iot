@@ -173,7 +173,7 @@ def sound():
     chromecast_changed.put(Chromecast.Volume(int(volume) / 1000))
     return redirect(url_for('index'))
 
-@app.route('/controller_mode', methods=['POST'])
+"""@app.route('/controller_mode', methods=['POST'])
 def sound():
     mode: str | None  = request.form.get('mode')
     if isinstance(mode, remote_mode_type):
@@ -181,7 +181,7 @@ def sound():
     else:
         print(f"Wrong mode string, got: {mode}")
     return redirect(url_for('index'))
-
+"""
 
 def zigbee_main(verbose: bool = False):
     async def main(kit: MonadenKit):
