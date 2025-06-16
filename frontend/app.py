@@ -5,7 +5,7 @@ import time
 
 sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
 
-
+import pychromecast
 from typing import Tuple, Callable, List, Literal, Any, Dict, Coroutine
 from flask import Flask, request, redirect, url_for, render_template
 from flask_socketio import SocketIO
@@ -244,9 +244,9 @@ def chromecast_main():
     global chromecast_app
     cc = pychromecast.get_listed_chromecasts(friendly_names=["Monaden CC"])[0][0]
     cc.wait()
-    
     class ML(pychromecast.controllers.media.MediaStatusListener):
         def __init__(self) -> None:
+            
             self.status: pychromecast.controllers.media.MediaStatus | None = None
             super().__init__()
         def new_media_status(self, status: pychromecast.controllers.media.MediaStatus) -> None:
