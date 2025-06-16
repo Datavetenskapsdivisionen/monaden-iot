@@ -1,6 +1,6 @@
 from typing import Callable, Literal, Dict, Any, List, LiteralString, Type
 from .Devices import IkeaColorLight, IKEA_tradfri_remote, IKEA_tradfri_remote_action_type
-from DevOri.mqttDevices import Device, Communicator
+from DevOri.MqttDevices import Device, Communicator
 from DevOri.utils import bytes2any 
 from enum import Enum, auto
 
@@ -29,7 +29,7 @@ class Zigbee2mqttDevice[send_T, valid_send_topics: LiteralString, receive_T, val
 
 
     async def recive_from_dict(self, topic: valid_recive_topics, category: e) -> Dict[str, Any]:
-        return self._recive_T2dict(await super().recive_from(topic, category))
+        return self._recive_T2dict(await super().receive_from(topic, category))
 
 SET = "set"
 GET = "get"
@@ -196,7 +196,7 @@ class Bridge[send_T, recive_T](Zigbee2mqttDevice[send_T, Literal["devices", "gro
         if self._devices != None:
             return self._devices
         await self.send_to_dict("devices", {})
-        message = await self.recive_from("devices", BridgeCategory.ALL)
+        message = await self.receive_from("devices", BridgeCategory.ALL)
         l: List[Dict[str, Any]] = bytes2any(message.payload) # type: ignore
         
         
@@ -207,7 +207,7 @@ class Bridge[send_T, recive_T](Zigbee2mqttDevice[send_T, Literal["devices", "gro
         if self._groups != None:
             return self._groups
         await self.send_to_dict("groups", {})
-        message = await self.recive_from("groups", BridgeCategory.ALL)
+        message = await self.receive_from("groups", BridgeCategory.ALL)
         l: List[Dict[str, Any]] = bytes2any(message.payload) # type: ignore
 
         self._groups = l
@@ -247,7 +247,7 @@ class IKEA_tradfri_remote_devori[send_T, recive_T](Zigbee2mqttDevice[send_T, Lit
     
 
     async def get_action(self) -> IKEA_tradfri_remote_action_type:
-        message = await self.recive_from("", RemoteKinds.ACTION)
+        message = await self.receive_from("", RemoteKinds.ACTION)
         d = self._recive_T2dict(message)
         action:str = d["action"]
         if action == "toggle":
@@ -286,7 +286,7 @@ class IKEA_tradfri_remote_devori[send_T, recive_T](Zigbee2mqttDevice[send_T, Lit
         return await self.get_battery()
     
     async def get_battery(self) -> int:
-        message = await self.recive_from("", RemoteKinds.BATTERYUPDATE)
+        message = await self.receive_from("", RemoteKinds.BATTERYUPDATE)
         d2 = self._recive_T2dict(message)
         i: int = d2["battery"]
         return i

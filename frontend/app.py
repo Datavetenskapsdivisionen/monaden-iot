@@ -1,23 +1,14 @@
-import multiprocessing.context
-import multiprocessing.pool
 import multiprocessing.queues
-import multiprocessing.sharedctypes
-import multiprocessing.synchronize
 import os
 import sys
-import signal
 import time
-
-import pychromecast.controllers
-import pychromecast.controllers.media
-import pychromecast.controllers.receiver
 
 sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
 
 
-from typing import Tuple, Callable, List, LiteralString, Literal, Any, Dict, NoReturn, Coroutine
+from typing import Tuple, Callable, List, Literal, Any, Dict, Coroutine
 from flask import Flask, request, redirect, url_for, render_template
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO
 from backend.aiomqtt_imp import run_with_monaden_kit, MonadenKit
 from backend.Devices import IkeaColorLight
 from backend import Chromecast
@@ -26,8 +17,6 @@ import multiprocessing
 import ctypes
 from concurrent.futures import ThreadPoolExecutor
 import argparse
-import pychromecast
-from dataclasses import asdict
 from backend.Devices import IKEA_tradfri_remote_action_type
 
 parser = argparse.ArgumentParser()
@@ -56,7 +45,7 @@ light_changes: multiprocessing.queues.Queue[lamp_T] = multiprocessing.Queue()
 
 
 
-chromecast_changed: multiprocessing.queues.Queue[Chromecast.Category] = multiprocessing.Queue()
+chromecast_changed: multiprocessing.queues.Queue[Chromecast.Category[Any]] = multiprocessing.Queue()
 
 chromecast_idel_status = multiprocessing.Value(ctypes.c_bool, False)
 chromecast_app = multiprocessing.Value(ctypes.c_char_p, "none".encode())

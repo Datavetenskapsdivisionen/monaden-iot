@@ -1,4 +1,4 @@
-from typing import Dict, List, Callable, Coroutine, Sequence
+from typing import Dict, List, Callable, Coroutine, Sequence, Any
 from aiomqtt import Message as Message_aio
 from .zigbee2mqttDevices import GetKinds, IkeaColorLight_devori, Communicator, IKEA_tradfri_remote_devori, RemoteKinds, Bridge, BridgeCategory
 from DevOri.utils import bytes2any, any2bytes, MultiACM
@@ -110,12 +110,12 @@ async def run_with_monaden_kit(main: Callable[[MonadenKit], Coroutine[None, None
                         print(f"Found strange device: {device}")
 
             groups = await bridge.get_groups()
-            group_devices = {}
+            group_devices: Dict[str, IkeaColorLight] = {}
             for g in groups:
                 group_devices[g["friendly_name"]] = make_bulb(g["friendly_name"], client)
            
             
             all_lights = make_bulb("all_lights",client)
-            async with MultiACM(remotes+lights):
+            async with MultiACM[Any]([a for a in remotes+lights]):
                 await main(MonadenKit(remotes, lights, all_lights, group_devices))
 

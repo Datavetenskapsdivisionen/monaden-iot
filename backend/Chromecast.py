@@ -1,4 +1,3 @@
-from typing import Literal, LiteralString
 from dataclasses import dataclass
 
 primetive_tuple = None | int | str |float | tuple[int, str | int, float | str, float | int, str, float]
