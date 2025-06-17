@@ -6,7 +6,7 @@ casttube==0.2.1
 certifi==2024.12.14
 charset-normalizer==3.4.1
 click==8.1.8
-DevOri @ git+https://github.com/mrSWE3/DevOri.git@95d056f9620790bf1c5cadcadf5c9072e0aeb4f9
+DevOri @ git+https://github.com/mrSWE3/DevOri.git@f4df20df672da6a2a44e0688a42198e83efd7a5f
 Flask==3.1.0
 Flask-SocketIO==5.5.1
 h11==0.14.0
