@@ -25,6 +25,7 @@ parser.add_argument('--port', type=int, default=5000)
 parser.add_argument('--backend_host', type=str,default="localhost")
 parser.add_argument('--backend_port', type=int, default=1883)
 parser.add_argument('--backend_prefix', type=str,default="zigbee2mqtt")
+parser.add_argument('--debug', type=bool,default=False)
 args = parser.parse_args()
 
 app = Flask(__name__)
@@ -35,6 +36,7 @@ PORT = args.port
 BACKEND_HOST = args.backend_host
 BACKEND_PORT = args.backend_port
 BACKEND_PREFIX = args.backend_prefix
+DEBUG = args.debug
 
 
 
@@ -320,7 +322,7 @@ def worker[*args_T](func: Callable[[*args_T],None]) -> Callable[[*args_T],None]:
 if __name__ == '__main__':
     processes: List[multiprocessing.Process] = []
     processes.append(multiprocessing.Process(target=(app.run), args=(HOST, PORT), name="---FRONTEND---"))
-    processes.append(multiprocessing.Process(target=(zigbee_main), args=(False, ), name="---LIGHTS---"))
+    processes.append(multiprocessing.Process(target=(zigbee_main), args=(DEBUG, ), name="---LIGHTS---"))
     processes.append(multiprocessing.Process(target=(chromecast_main), name="---chromeCAST---"))
     try:
         [p.start() for p in processes]
