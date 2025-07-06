@@ -304,19 +304,6 @@ def chromecast_main():
         time.sleep(0.1)
 
 
-
-
-
-def worker[*args_T](func: Callable[[*args_T],None]) -> Callable[[*args_T],None]:
-    def f(*args: *args_T):
-
-        try:
-            func(*args)
-        except KeyboardInterrupt as e:
-            print(e)
-    return f
-
-
 def flask_main():
     app.run(HOST, PORT)
 
