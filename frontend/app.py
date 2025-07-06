@@ -317,11 +317,12 @@ def worker[*args_T](func: Callable[[*args_T],None]) -> Callable[[*args_T],None]:
     return f
 
 
-
+def flask_main():
+    app.run(HOST, PORT)
 
 if __name__ == '__main__':
     processes: List[multiprocessing.Process] = []
-    processes.append(multiprocessing.Process(target=(app.run), args=(HOST, PORT), name="---FRONTEND---"))
+    processes.append(multiprocessing.Process(target=(flask_main), name="---FRONTEND---"))
     processes.append(multiprocessing.Process(target=(zigbee_main), args=(DEBUG, ), name="---LIGHTS---"))
     processes.append(multiprocessing.Process(target=(chromecast_main), name="---chromeCAST---"))
     try:
