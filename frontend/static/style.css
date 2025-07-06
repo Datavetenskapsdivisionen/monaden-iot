@@ -130,4 +130,54 @@ section {
     margin: 0.5rem auto;
 }
 
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.control-btn {
+  width: 25%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color:  #2196F3;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Play and Pause buttons bigger */
+.play-btn,
+.pause-btn {
+  flex: 1 1 70px;
+  max-width: 110px;
+}
+
+/* Closer play and pause buttons */
+.play-btn {
+  margin-right: 0px;
+  padding-left: 0px;
+}
+
+.pause-btn {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+/* Hover and focus styles with softer black glow */
+.control-btn:hover,
+.control-btn:focus-visible {
+  background-color: #0b7dda;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.control-btn:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
 

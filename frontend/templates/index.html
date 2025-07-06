@@ -29,13 +29,49 @@
         </form>
         
         <h1>Chromecast</h1>
-        <img src="{{app_image_path}}" alt="App Icon">
+
+        </form>
+
+
         <form id="mainform" action="/sound" method="POST" target="dummyframe">
+
+            <div class="controls">
+  <button type="submit" name="command" value="previous" class="control-btn" aria-label="Previous">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <polygon points="16,6 8,12 16,18" />
+    </svg>
+  </button>
+
+  <button type="submit" name="command" value="play" class="control-btn play-btn" aria-label="Play">
+    <!-- Play Icon -->
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <polygon points="8,5 19,12 8,19" />
+    </svg>
+  </button>
+
+  <button type="submit" name="command" value="pause" class="control-btn pause-btn" aria-label="Pause">
+    <!-- Pause Icon -->
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="6" y="5" width="4" height="14" />
+      <rect x="14" y="5" width="4" height="14" />
+    </svg>
+  </button>
+
+  <button type="submit" name="command" value="next" class="control-btn" aria-label="Next">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <polygon points="8,6 16,12 8,18" />
+    </svg>
+  </button>
+</div>
+
             <div class="slidercontainer">
                 <label class="dimmertext" for="volume">volume</label>
-                <input class="slider" id="volume" name="volume" type="range" min="0" max="1000" value="100" onchange="this.form.submit()"></input>
+                <input class="slider" id="volume" name="volume" type="range" min="0" max="1000" value="100"
+                    onchange="this.form.submit()">
             </div>
+
         </form>
+
     </section>
 </body>
 

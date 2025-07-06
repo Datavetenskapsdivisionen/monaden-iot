@@ -182,9 +182,18 @@ def light():
 @app.route('/sound', methods=['POST'])
 def sound():
     volume: str | None  = request.form.get('volume')
-    if volume == None or  not volume.isdigit():
-        return redirect(url_for('index'))
-    chromecast_changed.put(Chromecast.Volume(int(volume) / 1000))
+    command: str |None = request.form.get('command')
+    if command != None:
+        if command == "previous":
+            chromecast_changed.put(Chromecast.QueuePrevious(None))
+        elif command == "play":
+            chromecast_changed.put(Chromecast.Play(None))
+        elif command == "pause":
+            chromecast_changed.put(Chromecast.Pause(None))
+        elif command == "next":
+            chromecast_changed.put(Chromecast.QueueNext(None))
+    elif volume != None:
+        chromecast_changed.put(Chromecast.Volume(int(volume) / 1000))
     return redirect(url_for('index'))
 
 """@app.route('/controller_mode', methods=['POST'])
